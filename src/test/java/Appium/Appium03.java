@@ -25,11 +25,19 @@ public class Appium03 {
         capabilities.setCapability("noReset","true");
 
         AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+//asadidaki kod tel kilitli ise acmamizi sagliyor
+
+        if (driver.isDeviceLocked()) {
+            driver.unlockDevice();
+        }
 
         System.out.println("app yuklendi");
+
+        Thread.sleep(5000);
         MobileElement homeScreenTitle = driver.findElementById("android:id/title");
         Assert.assertTrue(homeScreenTitle.isDisplayed());
         System.out.println("Ana sayfa acildi");
+
 
         MobileElement testButton = driver.findElementById("com.davemac327.gesture.tool:id/testButton");
         testButton.click();
