@@ -24,6 +24,7 @@ public class Appium06WebAppChrome {
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,"60000");
         //chrome driver versiyonunuzu burdan indirebilrisiniz
         //https://chromedriver.storage.googleapis.com/index.html
+        //sonrasinda driver in absolute path bir alt satirda tanimliyorsunuz
         capabilities.setCapability("chromeDriverExecutable","/Users/ayyildiz/IdeaProjects/AppiumTechpro/src/driver/chromedriver");
         AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
