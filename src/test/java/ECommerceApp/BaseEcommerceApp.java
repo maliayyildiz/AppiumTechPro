@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class BaseECommerceApp {
     @Test
-    public AndroidDriver getAndroidDriver() throws MalformedURLException {
+    public static AndroidDriver getAndroidDriver() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");

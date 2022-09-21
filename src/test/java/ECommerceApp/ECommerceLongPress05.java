@@ -1,13 +1,18 @@
 package ECommerceApp;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
+import java.time.Duration;
 
-public class ECommerceTotalAmountValidation extends BaseECommerceApp{
+public class ECommerceLongPress05 extends BaseECommerceApp{
     /*
     //1- Fill the form details and verify Toast error messages displayed appropriately for wrong inputs
     //1- hatali data ile form doldurdugunuzda hata mesajini dogrulayin
@@ -86,6 +91,8 @@ public class ECommerceTotalAmountValidation extends BaseECommerceApp{
         //ikinci urun adi = Air Jordan 1 Mid SE
         Assert.assertEquals(driver.findElementByXPath("//android.widget.TextView[@text='Air Jordan 1 Mid SE']").getText(),"Air Jordan 1 Mid SE");
 
+
+        //sepetteki iki urunun toplami ile genel toplami karsilastirma
         MobileElement firstProductPrice = driver.findElementByXPath("(//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productPrice'])[1]");
         MobileElement secondProductPrice = driver.findElementByXPath("(//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productPrice'])[2]");
 
@@ -109,6 +116,19 @@ public class ECommerceTotalAmountValidation extends BaseECommerceApp{
         System.out.println("actual total double "+totalActualDouble);
 
         Assert.assertEquals(totalActualDouble,total);
+
+        //term of conditons gormek icin long press yapilmali
+        MobileElement termButton = driver.findElementById("com.androidsample.generalstore:id/termsButton");
+        TouchAction touchAction = new TouchAction(driver);
+
+        touchAction.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(termButton)))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2))).release().perform();
+
+        Thread.sleep(4000);
+
+        Assert.assertTrue(driver.findElementById("android:id/button1").isDisplayed());
+
+        driver.findElementById("android:id/button1").click();
 
 
         Thread.sleep(10000);

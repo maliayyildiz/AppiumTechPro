@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-public class ECommerceTotalAmountValidation extends BaseECommerceApp{
+public class ECommerceTotalAmountValidation04 extends BaseECommerceApp{
     /*
     //1- Fill the form details and verify Toast error messages displayed appropriately for wrong inputs
     //1- hatali data ile form doldurdugunuzda hata mesajini dogrulayin
@@ -86,6 +86,7 @@ public class ECommerceTotalAmountValidation extends BaseECommerceApp{
         //ikinci urun adi = Air Jordan 1 Mid SE
         Assert.assertEquals(driver.findElementByXPath("//android.widget.TextView[@text='Air Jordan 1 Mid SE']").getText(),"Air Jordan 1 Mid SE");
 
+        //sepeeteki iki urunun toplami ile genel toplami karsilastirma
         MobileElement firstProductPrice = driver.findElementByXPath("(//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productPrice'])[1]");
         MobileElement secondProductPrice = driver.findElementByXPath("(//android.widget.TextView[@resource-id='com.androidsample.generalstore:id/productPrice'])[2]");
 
