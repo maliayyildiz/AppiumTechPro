@@ -18,12 +18,52 @@
         <artifactId>java-client</artifactId>
         <version>7.4.1</version>
     </dependency>
-
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
         <version>7.0.0</version>
     </dependency>
     </dependencies>
-
+    <profiles>
+        <profile>
+            <id>ios</id>
+            <build>
+                <defaultGoal>execute</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.21.0</version>
+                        <configuration>
+                            <parallel>methods</parallel>
+                            <threadCount>4</threadCount>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>ios.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>android</id>
+            <build>
+                <defaultGoal>execute</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.21.0</version>
+                        <configuration>
+                            <parallel>methods</parallel>
+                            <threadCount>2</threadCount>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>calculator.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

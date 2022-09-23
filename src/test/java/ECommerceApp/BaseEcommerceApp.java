@@ -18,6 +18,8 @@ public class BaseECommerceApp {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "RealDevice");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+//        capabilities.setCapability(MobileCapabilityType.AUTO_WEBVIEW,"true");
+        capabilities.setCapability("chromedriverExecutable","/Users/ayyildiz/IdeaProjects/AppiumTechpro/src/driver/chromedriver");
         capabilities.setCapability(MobileCapabilityType.APP, "/Users/ayyildiz/IdeaProjects/AppiumTechpro/src/Apps/General-Store.apk");
         capabilities.setCapability("noReset", "true");
 
